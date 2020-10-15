@@ -73,7 +73,7 @@ export default function updateBacklinks(
         }
       ]
     };
-    backlinksString = `## Backlinks\n${backlinks
+    backlinksString = `## Backlinks\n\n${backlinks
       .map(
         entry =>
           `* [[${entry.sourceTitle}]]\n${entry.context
@@ -87,7 +87,7 @@ export default function updateBacklinks(
 
   let beforeBacklinks = noteContents.slice(0, insertionOffset);
   if (beforeBacklinks.split(/\r?\n/).pop() !== '' && backlinksString !== '') {
-    beforeBacklinks += '\n\n\n\n'
+    beforeBacklinks += '\n\n'
   }
   let afterBacklinks = noteContents.slice(oldEndOffset);
   if (afterBacklinks.split(/\r?\n/).length === 1 && !afterBacklinks.includes('## ...') && backlinksString !== '') {
